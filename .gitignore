@@ -1,4 +1,5 @@
 # git ignore
 blog/secret.json
+*.pyc
 #
 blog/applications/users/migrations/*
