@@ -63,7 +63,7 @@ class Entry(TimeStampedModel):
     #content va a ser un editor de texto, por lo que usamos ckeditor
     content = RichTextUploadingField('contenido')
     public = models.ImageField(
-        'Imagen',
+        verbose_name='Imagen',
         upload_to='Entry'
     )
     # Para indicar si el artículo va a estar en portada o no.
@@ -80,7 +80,7 @@ class Entry(TimeStampedModel):
     def __str__(self):
         return self.title
     
-       
+    
     
     
 

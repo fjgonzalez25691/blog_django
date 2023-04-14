@@ -14,7 +14,7 @@ class EntryManager(models.Manager):
         #devuelve las últimas cuatro entradas 
         return self.filter(
             in_home=True,
-        ).order_by('-created')[:4]
+        ).order_by('-created')[1:5]
         
     def entradas_recientes(self):
         #devuelve las últimas 6 entradas
@@ -23,7 +23,7 @@ class EntryManager(models.Manager):
         ).order_by('-created')[:6]
     
     def todos_las_entradas(self):
-        return self.all()
+        return self.all().order_by('-created')
     
     def prueba(self):
         return self.filter(
@@ -32,3 +32,15 @@ class EntryManager(models.Manager):
         # accedemos a la fecha de creación porque ya viene en el
         # TimeStampedModel aunque no la hayamos creado específicamente
         ).order_by('-created').first()
+        
+    def buscar_entrada(self, kword, categoria):
+        if len(categoria) >0 :
+            return self.filter(
+                category__short_name = categoria,
+                title__icontains=kword,
+            ).order_by('-created')
+        else:
+            return self.filter(
+                title__icontains=kword,
+            ).order_by('-created')
+         

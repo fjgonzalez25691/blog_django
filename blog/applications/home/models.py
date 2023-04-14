@@ -40,7 +40,7 @@ class Contact(TimeStampedModel):
         
     )
     email = models.EmailField()
-    message = models.TimeField()
+    message = models.TextField()
     
     class Meta:
         verbose_name = 'Contacto'
