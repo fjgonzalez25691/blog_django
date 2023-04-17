@@ -7,6 +7,7 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import (
     TemplateView,
     CreateView,
+    DetailView,
 )
 #app entrada
 from applications.entrada.models import Entry
@@ -38,4 +39,8 @@ class SuscriberCreateView(CreateView):
 class ContactCreateView(CreateView):
     form_class = ContactForm
     success_url = '.'
+    
+
+
+
    
